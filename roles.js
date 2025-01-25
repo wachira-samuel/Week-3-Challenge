@@ -25,6 +25,9 @@ const roles = {
 };
 
 function assignRole(user, role) {
+     if (!roles[role]) {
+        console.log(`Role ${role} does not exist.`);
+    }
     user.role = role;
     user.permissions = roles[role].permissions;
     console.log(`${user.name} has been assigned the role: ${role}`);
