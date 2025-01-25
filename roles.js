@@ -25,7 +25,7 @@ const roles = {
 };
 
 function assignRole(user, role) {
-     if (!roles[role]) {
+    if (!roles[role]) {
         console.log(`Role ${role} does not exist.`);
     }
     user.role = role;
@@ -42,10 +42,25 @@ if (registrationForm) {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const role = document.getElementById('role').value;
+
+
+        // verify empty fields
+        if (!email || !password || !role) {
+            showErrorMessage("All field are required.");
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            showErrorMessage("Please enter a valid email address.");
+            return;
+        }
+        // check whether a user with such email exist
+
+
         const newUser = {
-            name: email.split('@')[0], 
+            name: email.split('@')[0],
             email: email,
-            password: password, 
+            password: password,
         };
 
         try {
@@ -58,16 +73,18 @@ if (registrationForm) {
         }
     });
 }
+
+
 const adminUser = { name: 'AdminUser', email: 'admin@example.com' };
 const managerUser = { name: 'ManagerUser', email: 'manager@example.com' };
 
 try {
-    
+
     assignRole(adminUser, 'Admin');
     assignRole(managerUser, 'Manager');
 
-   
-    console.log(adminUser); 
+
+    console.log(adminUser);
     console.log(managerUser);
 } catch (error) {
     console.error(error.message);
@@ -76,5 +93,5 @@ try {
 function hasPermission(user, permission) {
     return user.permissions && user.permissions.includes(permission);
 }
-console.log(hasPermission(adminUser, 'manage_users')); 
+console.log(hasPermission(adminUser, 'manage_users'));
 console.log(hasPermission(managerUser, 'manage_users')); 
