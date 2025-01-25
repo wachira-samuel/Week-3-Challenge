@@ -1,44 +1,45 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="main.css">
- 
+
 </head>
+
 <body>
     <div class="form-wrapper">
-    <div class="form-container">
-        <h2 class="m-b-1">Login</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="login-email">Email:</label>
-                <input type="email" id="login-email" name="email" placeholder="Enter your email">
+        <div class="form-container">
+            <h2 class="m-b-1">Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary m-y-1">Login</button>
+            </form>
+            <div class="link" style="display: flex; flex-direction: row; justify-content: space-between;gap: 2rem;
+            align-items: center;">
+                <a href="forgot-password.html" style="color:var(--primary-color)">Forgot password?</a>
+                <a href="register.html">Have no account? Signup</a>
             </div>
-            <div class="form-group">
-                <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="password" 
-                placeholder="Enter your password">
-            </div>
-            <div style="display: flex; gap: 2rem; align-items: center; justify-content: space-between;">
-            <button type="submit" class="btn btn-primary m-y-1" style="width:50%">Login</button>
-            <a href="forgot-password.html" style="color:var(--primary-color)">Forgot password?</a>
-        </div>
-        </form>
-        <div class="link">
-
-            <a href="register.html">Have no account? Signup</a>
         </div>
     </div>
-</div>
 
-<script>
-    document.getElementById('login-form').addEventListener('click', loginUser)
+    <script>
+        document.getElementById('login-form').addEventListener('click', loginUser)
 
-    async function loginUser(event){
-        event.preventDefault()
-    }
-</script>
+        async function loginUser(event) {
+            event.preventDefault()
+            alert("login")
+        }
+    </script>
 </body>
+
 </html>
